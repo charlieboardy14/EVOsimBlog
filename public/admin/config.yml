@@ -24,3 +24,6 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "File", name: "file", widget: "file"}
+      - {label: "Version", name: "version", widget: "string", required: false}
+      - {label: "Changelog", name: "changelog", widget: "markdown", required: false}
+      - {label: "System Requirements", name: "system_requirements", widget: "text", required: false}

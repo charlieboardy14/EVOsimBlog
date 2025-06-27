@@ -33,6 +33,32 @@ export default function Post({ postData }) {
             </div>
             <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
+        <div style={{ marginTop: '3rem' }}>
+          <h2>Comments</h2>
+          <UtterancesRepo />
+        </div>
     </Layout>
+  );
+}
+
+function UtterancesRepo() {
+  // Replace with your actual GitHub repo for comments
+  const repo = 'charlieboardy14/EVOsimBlog-comments'; // IMPORTANT: CHANGE THIS TO YOUR COMMENTS REPO
+
+  return (
+    <section
+      ref={(elem) => {
+        if (!elem) return;
+        const scriptElem = document.createElement('script');
+        scriptElem.src = 'https://utteranc.es/client.js';
+        scriptElem.async = true;
+        scriptElem.setAttribute('repo', repo);
+        scriptElem.setAttribute('issue-term', 'pathname');
+        scriptElem.setAttribute('label', 'comment');
+        scriptElem.setAttribute('theme', 'github-light');
+        scriptElem.setAttribute('crossorigin', 'anonymous');
+        elem.appendChild(scriptElem);
+      }}
+    />
   );
 }

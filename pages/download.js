@@ -23,10 +23,19 @@ export default function Download({ allDownloadsData }) {
           <p>No downloadable files available yet.</p>
         ) : (
           <ul>
-            {allDownloadsData.map(({ id, title, description, file }) => (
+            {allDownloadsData.map(({ id, title, description, file, version, changelog, system_requirements }) => (
               <li key={id}>
-                <h3>{title}</h3>
+                <h3>{title} {version && `(v${version})`}</h3>
                 <p>{description}</p>
+                {changelog && (
+                  <div>
+                    <h4>Changelog:</h4>
+                    <div dangerouslySetInnerHTML={{ __html: changelog }} />
+                  </div>
+                )}
+                {system_requirements && (
+                  <p><strong>System Requirements:</strong> {system_requirements}</p>
+                )}
                 {file && (
                   <a href={file} download>
                     <button>Download</button>
