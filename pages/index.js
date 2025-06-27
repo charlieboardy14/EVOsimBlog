@@ -3,16 +3,16 @@ import Layout, { siteTitle } from '../components/layout';
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
-import FlexSearch from 'flexsearch';
+import { Document } from 'flexsearch'; // Explicitly import Document
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
 
   // Create a FlexSearch index
-  const index = new FlexSearch.Document({
+  const index = new Document({
     document: {
       id: 'id',
-      index: ['title', 'contentHtml'], // Use contentHtml here
+      index: ['title', 'contentHtml'],
     },
   });
 
@@ -20,14 +20,14 @@ export async function getStaticProps() {
     index.add({
       id: post.id,
       title: post.title,
-      contentHtml: post.contentHtml, // Pass contentHtml to the index
+      contentHtml: post.contentHtml,
     });
   });
 
   return {
     props: {
       allPostsData,
-      searchIndex: JSON.stringify(index.export()), // Stringify the index for serialization
+      searchIndex: JSON.stringify(index.export()),
     },
   };
 }

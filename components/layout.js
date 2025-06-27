@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import styles from './layout.module.css';
 import { useState, useEffect } from 'react';
-import FlexSearch from 'flexsearch';
+import { Document } from 'flexsearch'; // Explicitly import Document
 
 export const siteTitle = 'EvoSim Blog';
 
@@ -13,13 +13,13 @@ export default function Layout({ children, home, searchIndex }) {
 
   useEffect(() => {
     if (searchIndex) {
-      const newSearcher = new FlexSearch.Document({
+      const newSearcher = new Document({
         document: {
           id: 'id',
-          index: ['title', 'contentHtml'], // Corrected to contentHtml
+          index: ['title', 'contentHtml'],
         },
       });
-      newSearcher.import(JSON.parse(searchIndex)); // Parse the stringified index
+      newSearcher.import(JSON.parse(searchIndex));
       setSearcher(newSearcher);
     }
   }, [searchIndex]);
@@ -30,7 +30,7 @@ export default function Layout({ children, home, searchIndex }) {
 
     if (query.length > 2 && searcher) { // Only search if query is at least 3 characters
       const results = searcher.search(query, {
-        enrich: true, // Return the full document
+        enrich: true,
       });
       setSearchResults(results[0]?.result || []);
     } else {
