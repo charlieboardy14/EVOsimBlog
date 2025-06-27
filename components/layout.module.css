@@ -1,6 +1,6 @@
 .container {
-  max-width: 36rem;
-  padding: 0 1rem;
+  max-width: 48rem; /* Increased max-width for better readability */
+  padding: 0 1.5rem;
   margin: 3rem auto 6rem;
 }
 
@@ -8,11 +8,43 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 2rem; /* Increased padding */
+  border-bottom: 1px solid #eee; /* Lighter border */
+  margin-bottom: 3rem; /* Space below header */
 }
 
 .headerTitle {
-    font-size: 2.5rem;
-    margin: 1rem 0;
+  font-size: 3rem; /* Larger title */
+  margin: 1rem 0;
+  color: #222;
+}
+
+.header nav {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.header nav a {
+  margin: 0 10px;
+  font-weight: 500;
+  color: #555;
+  text-decoration: none;
+}
+
+.header nav a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* Adjustments for post pages */
+.postTitle {
+  font-size: 2.8rem;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+.lightText {
+  color: #666;
+  font-size: 0.9em;
 }

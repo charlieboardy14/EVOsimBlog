@@ -17,7 +17,7 @@ export default function Layout({ children, home }) {
       </Head>
       <header className={styles.header}>
         <nav>
-          <Link href="/">Home</Link> | <Link href="/download">Download</Link>
+          <Link href="/">Home</Link> | <Link href="/download">Download</Link> | <Link href="/admin">Admin</Link>
         </nav>
         <h1 className={styles.headerTitle}>{siteTitle}</h1>
       </header>
