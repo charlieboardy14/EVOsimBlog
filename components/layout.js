@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import styles from './layout.module.css';
 import { useState, useEffect } from 'react';
-import { Document } from 'flexsearch'; // Explicitly import Document
+import FlexSearch from 'flexsearch'; // Import the entire FlexSearch module
 
 export const siteTitle = 'EvoSim Blog';
 
@@ -13,7 +13,7 @@ export default function Layout({ children, home, searchIndex }) {
 
   useEffect(() => {
     if (searchIndex) {
-      const newSearcher = new Document({
+      const newSearcher = new FlexSearch.Document({
         document: {
           id: 'id',
           index: ['title', 'contentHtml'],

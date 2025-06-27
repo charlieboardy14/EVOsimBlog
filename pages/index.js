@@ -3,13 +3,13 @@ import Layout, { siteTitle } from '../components/layout';
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
-import { Document } from 'flexsearch'; // Explicitly import Document
+import FlexSearch from 'flexsearch'; // Import the entire FlexSearch module
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
 
   // Create a FlexSearch index
-  const index = new Document({
+  const index = new FlexSearch.Document({
     document: {
       id: 'id',
       index: ['title', 'contentHtml'],
