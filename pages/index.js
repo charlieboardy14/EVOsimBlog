@@ -3,31 +3,20 @@ import Layout, { siteTitle } from '../components/layout';
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
-import FlexSearch from 'flexsearch'; // Import the entire FlexSearch module
+import fs from 'fs';
+import path from 'path';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
 
-  // Create a FlexSearch index
-  const index = new FlexSearch.Document({
-    document: {
-      id: 'id',
-      index: ['title', 'contentHtml'],
-    },
-  });
-
-  allPostsData.forEach((post) => {
-    index.add({
-      id: post.id,
-      title: post.title,
-      contentHtml: post.contentHtml,
-    });
-  });
+  // Load the pre-generated search index
+  const searchIndexPath = path.join(process.cwd(), 'public', 'search-index.json');
+  const searchIndex = fs.readFileSync(searchIndexPath, 'utf8');
 
   return {
     props: {
       allPostsData,
-      searchIndex: JSON.stringify(index.export()),
+      searchIndex,
     },
   };
 }
