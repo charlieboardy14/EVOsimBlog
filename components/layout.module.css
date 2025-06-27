@@ -152,3 +152,65 @@
   background-color: #005bb5;
   text-decoration: none;
 }
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+    margin: 2rem auto 4rem;
+  }
+
+  .headerContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .header nav {
+    text-align: center;
+    width: 100%;
+  }
+
+  .header nav a {
+    margin: 0 8px;
+    font-size: 0.9em;
+  }
+
+  .headerTitle {
+    font-size: 2.2rem;
+  }
+
+  .postTitle {
+    font-size: 2rem;
+  }
+
+  .scrollerContent h2 {
+    font-size: 1.8rem;
+  }
+
+  .scrollerContent p {
+    font-size: 1em;
+  }
+
+  .postScroller {
+    padding: 1.5rem;
+  }
+
+  /* Contact form adjustments */
+  form {
+    padding: 1.5rem;
+  }
+
+  .newsletterForm {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .newsletterForm input[type="email"] {
+    max-width: 100%;
+  }
+}
