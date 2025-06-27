@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
 import { getSortedPostsData } from '../lib/posts';
+import PostScroller from '../components/PostScroller';
 import Link from 'next/link';
 import Date from '../components/date';
 
@@ -19,6 +20,9 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
+      
+      <PostScroller posts={allPostsData} /> {/* Integrate the scroller here */}
+
       <section>
         <h2>Blog Posts</h2>
         <div className="posts-list">
