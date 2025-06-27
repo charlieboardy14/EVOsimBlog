@@ -16,7 +16,7 @@ export default function Layout({ children, home, searchIndex }) {
       const newSearcher = new FlexSearch.Document({
         document: {
           id: 'id',
-          index: ['title', 'content'],
+          index: ['title', 'contentHtml'], // Corrected to contentHtml
         },
       });
       newSearcher.import(JSON.parse(searchIndex)); // Parse the stringified index
