@@ -3,27 +3,19 @@ import Layout, { siteTitle } from '../components/layout';
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
-import fs from 'fs';
-import path from 'path';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
-
-  // Load the pre-generated search index
-  const searchIndexPath = path.join(process.cwd(), 'public', 'search-index.json');
-  const searchIndex = fs.readFileSync(searchIndexPath, 'utf8');
-
   return {
     props: {
       allPostsData,
-      searchIndex,
     },
   };
 }
 
-export default function Home({ allPostsData, searchIndex }) {
+export default function Home({ allPostsData }) {
   return (
-    <Layout home searchIndex={searchIndex}> {/* Pass searchIndex to Layout */}
+    <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>

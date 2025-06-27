@@ -4,9 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run generate-search-index && next build",
-    "start": "next start",
-    "generate-search-index": "node scripts/generate-search-index.js"
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "next": "13.4.19",
@@ -15,7 +14,6 @@
     "gray-matter": "^4.0.3",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
-    "date-fns": "^2.29.3",
-    "flexsearch": "^0.7.31"
+    "date-fns": "^2.29.3"
   }
 }
